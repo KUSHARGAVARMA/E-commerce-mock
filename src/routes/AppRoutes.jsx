@@ -7,7 +7,7 @@ import Loader from '../components/loader/Loader';
 import ProductList from '../pages/productList';
 import NotFound from '../pages/notFound/NotFound';
 import Cart from '../pages/cart/cart';
-
+import AllProducts from '../pages/all-products/AllProducts';
 
 const AppRoutes = () => {
    const {data: categories, isLoading } = useFetchData('https://fakestoreapi.com/products/categories',[]);
@@ -22,6 +22,7 @@ const AppRoutes = () => {
               isLoading ? (<Loader />) :
               (
                 <Routes>
+                  <Route path="/" element={<AllProducts/>} />
                   <Route path="/products/:categoryName" element={<ProductList />} />
                   <Route path="/cart" element={<Cart />} />
                   <Route path="*" element={<NotFound />} />
